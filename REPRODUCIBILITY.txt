@@ -1,0 +1,61 @@
+M2 Deep Learning Coursework - Reproducibility Instructions
+
+Goal
+Run coursework.ipynb from top to bottom on a clean CPU-only machine without manual edits.
+
+Tested Environment
+- OS: macOS (CPU only)
+- Python: 3.14.3
+- Dependency management: pyproject.toml
+- Jupyter kernel name: m2-normalizing-flows
+
+Important CPU/Determinism Notes
+- The notebook setup cell fixes random seeds for random, numpy, and torch.
+- The notebook explicitly uses DEVICE = cpu.
+- The notebook enables torch deterministic algorithms (warn_only=True).
+
+Clean-Machine Setup (Primary: pyproject.toml)
+1) Clone repository and enter it.
+2) Create a virtual environment:
+   python3 -m venv .venv
+3) Activate it:
+   source .venv/bin/activate
+4) Upgrade pip:
+   python -m pip install --upgrade pip
+5) Install project dependencies from pyproject.toml:
+   pip install .
+
+Alternative Strict Install (exact resolved versions from development machine)
+- pip install -r requirements-lock.txt
+
+Kernel Setup (for notebook UI execution)
+Requirements:
+- You must run this after activating `.venv`.
+- `ipykernel` must be installed (it is included in project dependencies).
+- Launch Jupyter from the same `.venv` so it sees the kernel spec.
+
+Register kernel (recommended for VS Code/Jupyter discovery):
+- python -m ipykernel install --user --name m2-normalizing-flows --display-name "Python (m2-normalizing-flows)"
+
+Verify kernel is available:
+- jupyter kernelspec list
+
+Then open `coursework.ipynb` and select:
+- Python (m2-normalizing-flows)
+
+Run Notebook Non-Interactively (recommended for marking)
+- jupyter nbconvert --to notebook --execute --inplace coursework.ipynb
+
+Run Notebook Interactively (alternative)
+- jupyter notebook coursework.ipynb
+
+Expected Generated Artifacts (when implementation is complete)
+- results.json
+- figs/*.pdf
+- checkpoints/flow_full.pt
+- logs/training_curves.json
+
+Notes
+- Do not edit notebook cells before execution.
+- No GPU/CUDA/MPS is required.
+- Keep all notebook runs inside the `.venv` environment.
