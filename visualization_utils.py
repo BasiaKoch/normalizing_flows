@@ -4,6 +4,7 @@ from typing import Union
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+from IPython.display import Image, Markdown, display
 
 ArrayLike = Union[np.ndarray, torch.Tensor]
 
@@ -25,6 +26,20 @@ def _save_figure(fig: plt.Figure, out_path: Union[str, Path], *, save_png: bool 
     fig.savefig(path, bbox_inches="tight")
     if save_png:
         fig.savefig(path.with_suffix(".png"), dpi=180, bbox_inches="tight")
+
+
+def display_saved_figure(
+    *,
+    image_path: Union[str, Path],
+    caption_markdown: str,
+    width: int = 900,
+) -> None:
+    """Display a saved image with a short markdown caption inside the notebook."""
+    path = Path(image_path)
+    if not path.exists():
+        raise FileNotFoundError(f"Expected figure not found: {path}")
+    display(Markdown(caption_markdown))
+    display(Image(filename=str(path), width=width))
 
 
 def plot_data_splits(
