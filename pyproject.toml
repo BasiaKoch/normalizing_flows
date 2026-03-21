@@ -5,15 +5,14 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "m2-normalizing-flows"
 version = "0.1.0"
-description = "Scaffold for M2 Deep Learning coursework normalizing flow implementation"
-readme = "REPRODUCIBILITY.txt"
-requires-python = ">=3.10,<3.15"
+description = "M2 Deep Learning coursework: normalizing flow"
+requires-python = ">=3.10"
 dependencies = [
-  "torch==2.10.0",
-  "numpy==2.4.3",
-  "matplotlib==3.10.8",
-  "notebook==7.5.4",
-  "ipykernel==7.2.0"
+    "torch>=2.2.0",
+    "numpy>=1.26.0",
+    "matplotlib>=3.8.0",
+    "notebook>=7.0.0",
+    "ipykernel>=6.25.0",
 ]
 
 [tool.setuptools]
