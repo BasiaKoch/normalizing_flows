@@ -12,6 +12,7 @@ dependencies = [
     "numpy>=1.26.0",
     "matplotlib>=3.8.0",
     "notebook>=7.0.0",
+    "nbconvert>=7.16.0",
     "ipykernel>=6.25.0",
 ]
 
