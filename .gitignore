@@ -1,11 +1,15 @@
-# Ignore markdown files
-*.md
+# Local notes and agent instructions
+AGENTS.md
+WORKFLOW.md
+.claude/
+.vscode/
 
 # Python cache and bytecode
 __pycache__/
 *.py[cod]
 *$py.class
 *.egg-info/
+build/
 .DS_Store
 
 # Virtual environments
@@ -26,3 +30,11 @@ results.json
 !figs/.gitkeep
 !checkpoints/.gitkeep
 !logs/.gitkeep
+!README.md
+!results.json
+!figs/Figure1c.pdf
+!figs/Figure2a.pdf
+!figs/Figure2c.pdf
+!figs/Figure3b.pdf
+!checkpoints/flow_full.pt
+!logs/training_curves.json
